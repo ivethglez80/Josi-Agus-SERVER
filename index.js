@@ -8,6 +8,12 @@ const PORT = process.env.PORT;
 
 
 app.listen(PORT, ()=>{
-    sequelize.sync({force:true}); //cambiar a false para produccion
+    sequelize.sync({ force: false }) // Usa 'force: true' solo en desarrollo si necesitas recrear las tablas
+    .then(() => {
+        console.log("Tablas sincronizadas con éxito");
+    })
+    .catch(err => {
+        console.error("Error al sincronizar las tablas:", err);
+    });
     console.log(`listening on port ${PORT}`);
 });
