@@ -1,3 +1,7 @@
+invitation base back sin estilos
+
+
+
 npm install nodemailer express dotenv cors pg pg-hstore
 
 en .env de back:
