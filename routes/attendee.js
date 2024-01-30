@@ -1,6 +1,6 @@
 const {Router} = require ("express");
 
-const {createGuestHandler, getGuestsListHandler, updtAsisteHandler} = require("../handlers/guestHandlers");
+const {createGuestHandler, getGuestsListHandler, updtAsisteHandler, modifyGuestHandler, deleteGuestHandler} = require("../handlers/guestHandlers");
 
 const guestRouter = Router();
 
@@ -15,5 +15,7 @@ const validate = (req,res, next) => {
 guestRouter.post("/", validate, createGuestHandler);
 guestRouter.get("/", getGuestsListHandler);
 guestRouter.put("/", updtAsisteHandler);
+guestRouter.put("/modify", modifyGuestHandler);
+guestRouter.delete("/", deleteGuestHandler);
 
 module.exports = guestRouter;

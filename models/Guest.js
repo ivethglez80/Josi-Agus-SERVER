@@ -34,6 +34,10 @@ module.exports = (sequelize) => {
             asiste:{
                 type:DataTypes.BOOLEAN,
                 defaultValue: true
+            }, 
+            comentarios:{
+                type: DataTypes.STRING,
+                allowNull: true
             }
 
         },
