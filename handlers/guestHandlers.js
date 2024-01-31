@@ -35,8 +35,7 @@ const updtAsisteHandler = async (req,res) => {
 }
 
 const modifyGuestHandler = async (req,res) => {
-    const {id,nombre, apellido, email, telefono, cantidad, asiste, comentarios} = req.body;
-    console.log("nuevos datos", id,nombre, apellido, email, telefono, cantidad, asiste, comentarios);
+    const {id, nombre, apellido, email, telefono, cantidad, asiste, comentarios} = req.body;    
     try {
         const getModified = await modifyGuest(id, nombre, apellido, email, telefono, cantidad, asiste, comentarios);
         if (getModified){

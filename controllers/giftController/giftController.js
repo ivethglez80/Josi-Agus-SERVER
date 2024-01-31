@@ -22,5 +22,30 @@ const updtDisponible = async (id, disponible, invitado) => {
     
 };
 
+const modifyGift = async (id, imagen, nombre_art, descripcion, link, invitado) => {
+    const modified = await Gift.update ({id, imagen, nombre_art, descripcion, link, invitado},
+        {
+            where: {id:id}
+        }
+        );
+    if (modified[0]>0){
+        const mdfdGft = await Gift.findOne({where:{id:id}});
+        return mdfdGft;
+    }else{
+        return null;
+    }
+};
 
-module.exports = {createGift, getGiftsList, updtDisponible};
+const deleteGift = async (id) => {
+    const deleted = await Gift.destroy({
+        where:{id:id}
+    })
+    if (deleted>0){
+        return true;
+    }else{
+        return null;
+    }
+}
+
+
+module.exports = {createGift, getGiftsList, updtDisponible, modifyGift, deleteGift};
